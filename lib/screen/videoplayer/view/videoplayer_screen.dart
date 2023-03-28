@@ -16,13 +16,9 @@ class _videoplayer_screenState extends State<videoplayer_screen> {
   videoprovider? videoplayerfalse;
   videoprovider? videoplayertrue;
 
-  void initState() {
-    super.initState();
-    Provider.of<videoprovider>(context, listen: false).initvideo();
-  }
-
   @override
   Widget build(BuildContext context) {
+    int inde=ModalRoute.of(context)!.settings.arguments as int;
     videoplayerfalse = Provider.of<videoprovider>(context, listen: false);
     videoplayertrue = Provider.of<videoprovider>(context, listen: true);
     return SafeArea(
@@ -31,7 +27,7 @@ class _videoplayer_screenState extends State<videoplayer_screen> {
         body: Column(
           children: [
             Container(
-              height: 500,
+              height: 700,
               width: double.infinity,
               child: Chewie(
                 controller: videoplayerfalse!.chewieController!,
